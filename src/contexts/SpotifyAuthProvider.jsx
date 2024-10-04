@@ -41,11 +41,13 @@ export function SpotifyAuthProvider({children}) {
     useEffect(() => {
         
         async function getAuthData() {
-            const authData = await getAuthToken(clientId, userAuthCode);
+            const authData = await getAuthTokens(clientId, userAuthCode);
             setUserAuthData(authData);
             // This cleans up the URL in the browser tab
             // removing the Spotify auth data so it doesn't impact page load userEffect
-            window.history.replace(null, "Spotify Statsboards", "/");
+            // URL before replaceState
+            // localhost:5173
+            window.history.replaceState(null, "Spotify Statsboards", "/");
         }
         if (userAuthCode) {
             getAuthData();
