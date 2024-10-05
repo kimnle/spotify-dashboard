@@ -17,7 +17,7 @@ function App() {
         Sign in via Spotify
       </button>
 
-      <ProfileHeader></ProfileHeader>
+      <ProfileHeader />
     </>
   )
 }
