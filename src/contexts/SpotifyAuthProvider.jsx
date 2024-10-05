@@ -14,6 +14,8 @@ export function useSpotifyAuthContext() {
     return useContext(SpotifyAuthContext);
 }
 
+// Client ID from app configured in Spotify developer dashboard
+// https://developer.spotify.com/dashboard
 const clientId = "b7e492d2d5ad43929d92e8217929548d";
 
 export function SpotifyAuthProvider({children}) {
@@ -46,8 +48,10 @@ export function SpotifyAuthProvider({children}) {
             // This cleans up the URL in the browser tab
             // removing the Spotify auth data so it doesn't impact page load userEffect
             // URL before replaceState
-            // localhost:5173
+            // localhost:5173/spotifycallback?code=gjkdhajlgjldkaf
             window.history.replaceState(null, "Spotify Statsboards", "/");
+            // URL after replaceState:
+            // localhost:5173/
         }
         if (userAuthCode) {
             getAuthData();
@@ -63,6 +67,7 @@ export function SpotifyAuthProvider({children}) {
         params.append("client_id", clientId);
         params.append("grant_type", "authorization_code");
         params.append("code", code);
+        // params.append("redirect_uri", process.env.SOME_SPOTIFY_REDIRECT_URI);
         params.append("redirect_uri", "http://localhost:5173/spotifycallback");
         params.append("code_verifier", verifier);
 

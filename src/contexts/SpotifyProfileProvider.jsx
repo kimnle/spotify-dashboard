@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useSpotifyAuthContext } from "./SpotifyAuthProvider";
 
 export const defaultProfileData = {
