@@ -1,4 +1,5 @@
 import { useSpotifyProfileData } from "../contexts/SpotifyProfileProvider";
+import "../syles/ProfileHeader.css";
 
 export function ProfileHeader() {
 

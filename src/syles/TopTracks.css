@@ -1,0 +1,10 @@
+#topTracksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    .trackCard {
+        width: 100px;
+        img {
+            width: 100px;
+        }
+    }
+}
